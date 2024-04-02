@@ -1,0 +1,133 @@
+format = """
+[╭─](#808080)\
+$os\
+[](bg:#1376f8 fg:#15fca2)\
+$directory\
+[](#1376f8)\
+[](#52ffcf)\
+$git_branch\
+$fill\
+"""
+
+right_format = """
+[](0b3b61)\
+
+"""
+
+# Drop ugly default prompt characters
+[character]
+success_symbol = '[╰─ ](0b3b61)'
+error_symbol = '[╰─ ](ff3a3a)'
+
+
+# ---
+
+[os]
+format = '[$symbol](bg:#15fca2 fg:#080808)'   
+disabled = false
+
+[os.symbols]
+AlmaLinux = "   "
+Alpine = "   "
+Amazon = "   "
+Android = "   "
+Arch = " 󰣇  "
+Artix = "   "
+CentOS = " 󱄚  "
+Debian = "   "
+EndeavourOS = "   "
+Fedora = "   "
+FreeBSD = "   "
+Garuda = "   "
+Gentoo = "   "
+Illumos = "   "
+Kali = "   "
+Linux = "   "
+Macos = "   "
+Manjaro = "   "
+Mint = " 󰣭  "
+NixOS = "   "
+OpenBSD = "   "
+openSUSE = "   "
+Pop = "   "
+Redhat = " 󱄛  "
+RedHatEnterprise = " 󱄛  "
+RockyLinux = "   "
+Solus = "   "
+SUSE = "   "
+Ubuntu = "   "
+Unknown = "   "
+Void = "   "
+Windows = "   "
+
+
+# Shows current directory
+[directory]
+style = "bg:#1376f8 fg:#e4e4e4"
+truncation_length = 1
+truncation_symbol = '   ~/'
+home_symbol = '   ~ '
+read_only_style = '197'
+read_only = '  '
+format = '[$path]($style)[$read_only]($read_only_style)'
+
+# Fill
+[fill]
+symbol = '─'
+style = '808080'
+
+# Status
+[status]
+disabled = false
+
+# Shows current git branch
+[git_branch]
+symbol = '[  ](1376f8)'
+format = '[$symbol$branch]($style)'
+# truncation_length = 4
+truncation_symbol = '…/'
+style = 'bg:#52ffcf fg:#0b3b61'
+
+# Shows current git status
+[git_status]
+format = '([ \( $all_status$ahead_behind\)]($style) )'
+style = 'bold green'
+conflicted = '[ confliced=${count}](red) '
+up_to_date = '[󰘽 up-to-date](green) '
+untracked = '[󰋗 untracked=${count}](red) '
+ahead = ' ahead=${count}'
+diverged = ' ahead=${ahead_count}  behind=${behind_count}'
+behind = ' behind=${count}'
+stashed = '[ stashed=${count}](green) '
+modified = '[󰛿 modified=${count}](yellow) '
+staged = '[󰐗 staged=${count}](green) '
+renamed = '[󱍸 renamed=${count}](yellow) '
+deleted = '[󰍶 deleted=${count}](red) '
+
+# Shows kubernetes context and namespace
+[kubernetes]
+format = 'via [󱃾 $context\($namespace\)](bold purple) '
+disabled = false
+
+# ---
+
+[vagrant]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[helm]
+disabled = true
+
+[python]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
