@@ -1,3 +1,7 @@
+# Configuration for Starship prompt
+# Left prompt
+add_newline = false
+
 format = """
 [╭─](#808080)\
 $os\
@@ -9,9 +13,9 @@ $git_branch\
 $fill\
 """
 
+# Right prompt
 right_format = """
 [](0b3b61)\
-
 """
 
 # Drop ugly default prompt characters
@@ -19,13 +23,12 @@ right_format = """
 success_symbol = '[╰─ ](0b3b61)'
 error_symbol = '[╰─ ](ff3a3a)'
 
-
-# ---
-
+# Shows OS icon
 [os]
 format = '[$symbol](bg:#15fca2 fg:#080808)'   
 disabled = false
 
+# Icons for different operating systems
 [os.symbols]
 AlmaLinux = "   "
 Alpine = "   "
@@ -60,31 +63,20 @@ Unknown = "   "
 Void = "   "
 Windows = "   "
 
-
 # Shows current directory
 [directory]
+format = '[ $read_only]($read_only_style)[$path ]($style)'
 style = "bg:#1376f8 fg:#e4e4e4"
-truncation_length = 1
-truncation_symbol = '   ~/'
-home_symbol = '   ~ '
-read_only_style = '197'
-read_only = '  '
-format = '[$path]($style)[$read_only]($read_only_style)'
-
-# Fill
-[fill]
-symbol = '─'
-style = '808080'
-
-# Status
-[status]
-disabled = false
+truncate_to_repo = false
+home_symbol = '  ~'
+read_only_style = 'bg:#1376f8 fg:#e4e4e4'
+read_only = ' '
 
 # Shows current git branch
 [git_branch]
-symbol = '[  ](1376f8)'
 format = '[$symbol$branch]($style)'
-# truncation_length = 4
+symbol = '[  ](1376f8)'
+truncation_length = 4
 truncation_symbol = '…/'
 style = 'bg:#52ffcf fg:#0b3b61'
 
@@ -104,10 +96,10 @@ staged = '[󰐗 staged=${count}](green) '
 renamed = '[󱍸 renamed=${count}](yellow) '
 deleted = '[󰍶 deleted=${count}](red) '
 
-# Shows kubernetes context and namespace
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
+# Fill
+[fill]
+symbol = '─'
+style = '808080'
 
 # ---
 
