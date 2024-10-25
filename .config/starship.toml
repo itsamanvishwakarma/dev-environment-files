@@ -8,6 +8,7 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:#394260 bg:#212736)\
+$conda\
 $c\
 $cmake\
 $daml\
@@ -47,6 +48,12 @@ $crystal\
 $time\
 [ ](fg:#1d2230)\
 \n$character"""
+
+[conda]
+symbol = "󱔎 "
+style = "bg:#212736"
+ignore_base = false
+format = '[[ $symbol ($environment) ](fg:#769ff0 bg:#212736)]($style)'
 
 [os]
 format = '$symbol'   
