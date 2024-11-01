@@ -46,14 +46,9 @@ $nix_shell\
 $crystal\
 [](fg:#212736 bg:#1d2230)\
 $time\
+$battery\
 [ ](fg:#1d2230)\
 \n$character"""
-
-[conda]
-symbol = "󱔎 "
-style = "bg:#212736"
-ignore_base = false
-format = '[[ $symbol ($environment) ](fg:#769ff0 bg:#212736)]($style)'
 
 [os]
 format = '$symbol'   
@@ -108,6 +103,12 @@ format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 [git_status]
 style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[conda]
+symbol = "󱔎"
+style = "bg:#212736"
+ignore_base = false
+format = '[[ $symbol ($environment) ](fg:#769ff0 bg:#212736)]($style)'
 
 [c]
 symbol = ""
@@ -289,3 +290,37 @@ disabled = false
 use_12hr = true
 style = "bg:#1d2230"
 format = '[[   $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[battery]
+disabled = false
+format = '[ $symbol$percentage ](fg:#a0a9cb bg:#1d2230)'
+
+# Below 20% - Show empty symbol = "󰂎"
+[[battery.display]]
+threshold = 20
+style = "bg:#1d2230"
+discharging_symbol = "󰂎 "
+
+# Between 15% and 40% - Show discharging symbol = "󰂃"
+[[battery.display]]
+threshold = 40
+style = "bg:#1d2230"
+discharging_symbol = "󰂃 "
+
+# Between 40% and 80% - Show unknown symbol = "󰁽"
+[[battery.display]]
+threshold = 80
+style = "bg:#1d2230"
+discharging_symbol = "󰁽 "
+
+# Above 80% - Show full symbol = "󰁹"
+[[battery.display]]
+threshold = 100
+style = "bg:#1d2230"
+discharging_symbol = "󰁹 "
+
+# When charging - This will override the above symbols with the charging symbol = "󰂄"
+[[battery.display]]
+threshold = 100
+style = "bg:#1d2230"
+charging_symbol = "󰂄 "
