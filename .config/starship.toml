@@ -9,6 +9,7 @@ $git_branch\
 $git_status\
 [](fg:#394260 bg:#212736)\
 $conda\
+$docker_context\
 $c\
 $cmake\
 $daml\
@@ -103,6 +104,15 @@ format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 [git_status]
 style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#212736"
+format = '[ $symbol ($context) ](fg:#769ff0 bg:#212736)'
+only_with_files = true
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_folders = []
+disabled = false
 
 [conda]
 symbol = "󱔎"
